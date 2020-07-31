@@ -1,5 +1,3 @@
-//please first click on home or on any link in the sidenav before creating twitter cuz i have prob here
-
 var submit = document.getElementById('submit');
 submit.addEventListener('click', createTweet);
 var tweets = [];
@@ -7,14 +5,14 @@ var count;
 
 function createTweet(e) {
     e.preventDefault();
+
     var tweetobj = {
         author: document.getElementById("usname").value,
         tweet: document.getElementById("tweetbox").value
     }
-     
-    tweets.push(tweetobj);//for saving in array
-    document.forms[0].reset();//to clear the form for the next entries
-    //for display author & tweet
+    tweets.push(tweetobj);
+    document.forms[0].reset();
+ 
 
     if (tweets.length == 1) {
         var authdiv = document.createElement("div");
@@ -39,12 +37,11 @@ function createTweet(e) {
 
 
 
-        authdiv.innerHTML = tweets[count].author;//for display
+        authdiv.innerHTML = tweets[count].author;
         div.appendChild(authdiv);
-        tweetdiv.innerHTML = tweets[count].tweet;//for display
+        tweetdiv.innerHTML = tweets[count].tweet;
         div.appendChild(tweetdiv);
 
-        //for display like & retweet button
         var div1 = document.createElement("div");
         var like = document.createElement('BUTTON');
         like.innerHTML = "Like";
@@ -55,7 +52,6 @@ function createTweet(e) {
         like.style.marginRight = "50px";
         like.style.marginLeft = "20px";
         like.style.borderRadius = "3px";
-        //like.style.color="pink";
         var retweet = document.createElement('BUTTON');
         retweet.innerHTML = "Retweet";
         retweet.addEventListener("click", retweetfunc);
@@ -67,24 +63,6 @@ function createTweet(e) {
         div.appendChild(div1);
 
     } else {
-
-        //authdiv.remove();
-        //tweetdiv.remove();
-        /* div1.removeChild(like);
-         div1.removeChild(retweet);
-     
-         div.removeChild(div1);
-         div.removeChild(authdiv);
-         div.removeChild(tweetdiv);
-         //div.remove();
-     
-     
-         //div1.remove();
-     
-        /* authdiv.innerHTML="";
-         tweetdiv.innerHTML="";*/
-        //div.style.visibility="hidden";
-
         for (let i = tweets.length - 1; i >= 0; i--) {
 
             var authdiv = document.createElement("div");
@@ -92,9 +70,9 @@ function createTweet(e) {
             var div = document.getElementById("news");
 
 
-            authdiv.innerHTML = tweets[i].author;//for display
+            authdiv.innerHTML = tweets[i].author;
             div.appendChild(authdiv);
-            tweetdiv.innerHTML = tweets[i].tweet;//for display
+            tweetdiv.innerHTML = tweets[i].tweet;
             div.appendChild(tweetdiv);
 
             div.style.border = "2px";
@@ -111,7 +89,6 @@ function createTweet(e) {
             authdiv.style.margin = "10px 0";
 
 
-            //for display like & retweet button
             var div1 = document.createElement("div");
             var like = document.createElement('BUTTON');
             like.innerHTML = "Like";
@@ -139,17 +116,17 @@ function createTweet(e) {
 
         }
     }
-    //declaration of other functions
+ 
     function changetextcolor() {
         tweetdiv.style.color = "red";
 
     }
     function retweetfunc() {
         var authordiv1 = document.createElement("div");
-        authordiv1.innerHTML = tweets[count].author;//for display
+        authordiv1.innerHTML = tweets[count].author;
         div.appendChild(authordiv1);
         var tweetdiv1 = document.createElement("div");
-        tweetdiv1.innerHTML = tweets[count].tweet;//for display
+        tweetdiv1.innerHTML = tweets[count].tweet;
         div.appendChild(tweetdiv1);
 
 
