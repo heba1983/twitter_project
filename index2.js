@@ -6,11 +6,12 @@ var tweets = [];
 var count;
 
 function createTweet(e) {
+    e.preventDefault();
     var tweetobj = {
         author: document.getElementById("usname").value,
         tweet: document.getElementById("tweetbox").value
     }
-     e.preventDefault();
+     
     tweets.push(tweetobj);//for saving in array
     document.forms[0].reset();//to clear the form for the next entries
     //for display author & tweet
